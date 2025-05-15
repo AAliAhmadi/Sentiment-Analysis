@@ -22,10 +22,10 @@ Predictions can optionally be saved to a local **SQLite** database for tracking.
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/AAliAhmadi/Sentiment-Analysis
-.git
-   cd sentiment-analyzer
-   ```
+   git clone https://github.com/AAliAhmadi/Sentiment-Analysi.git
+  ```
+  - cd sentiment-analyzer
+  
 
 2. Install dependencies:
    ```bash
