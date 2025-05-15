@@ -24,10 +24,10 @@ Predictions can optionally be saved to a local **SQLite** database for tracking.
    ```bash
    git clone https://github.com/AAliAhmadi/Sentiment-Analysi.git
   ```
-  - cd sentiment-analyzer
   
 
 2. Install dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
