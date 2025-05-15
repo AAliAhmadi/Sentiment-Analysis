@@ -1,18 +1,26 @@
 import torch
 from transformers import BertTokenizer, BertForSequenceClassification
 
-class SentimentModel:
-    def __init__(self, model_name="nlptown/bert-base-multilingual-uncased-sentiment", device=None):
-        self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
-        self.tokenizer = BertTokenizer.from_pretrained(model_name)
-        self.model = BertForSequenceClassification.from_pretrained(model_name).to(self.device)
-        self.model.eval()
+def load_model():
+    """
+    Loads BERT tokenizer and model for sentiment classification.
+    """
+    tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
+    model = BertForSequenceClassification.from_pretrained("textattack/bert-base-uncased-imdb")
+    model.eval()
+    return tokenizer, model
 
-    def predict(self, text):
-        inputs = self.tokenizer(text, return_tensors="pt", truncation=True, max_length=512)
-        inputs = {k: v.to(self.device) for k, v in inputs.items()}
-        with torch.no_grad():
-            outputs = self.model(**inputs)
-        probs = torch.nn.functional.softmax(outputs.logits, dim=-1)
-        rating = torch.argmax(probs) + 1
-        return rating.item()
+def predict_sentiment(texts, tokenizer, model):
+    """
+    Predicts sentiment (positive/negative) for a list of texts.
+    Returns a list of sentiment strings.
+    """
+    sentiments = []
+    with torch.no_grad():
+        for text in texts:
+            inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
+            outputs = model(**inputs)
+            preds = torch.argmax(outputs.logits, dim=-1)
+            sentiment = "positive" if preds.item() == 1 else "negative"
+            sentiments.append(sentiment)
+    return sentiments
