@@ -1,15 +1,18 @@
-# IMDB Sentiment Analysis with BERT and SQLite
+# Sentiment Analysis with BERT and SQLite Logging
 
-This project performs sentiment analysis on a subset of the IMDB dataset using a pretrained BERT model, and stores the text and predicted sentiment into an SQLite database.
+## Overview
+This project performs sentiment analysis on movie reviews using a pretrained BERT model.
+You can analyze:
+- The default IMDB test dataset (200 samples)
+- Your own custom text file (one sentence per line)
+
+Predictions can be optionally logged into a local SQLite database (`predictions.db`).
+
+---
 
 ## Setup
 
+1. Install dependencies (preferably in a virtual environment):
+
 ```bash
 pip install -r requirements.txt
-```
-
-## Usage
-
-```bash
-python main.py
-```
