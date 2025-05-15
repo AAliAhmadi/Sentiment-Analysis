@@ -43,17 +43,17 @@ python main.py --data_file your_text_file.txt --use_db
 
 
 ### Files
-- main.py: Main script with CLI interface
+- `main.py`: Main script with CLI interface
 
-- data.py: Loads IMDB or custom text file data
+- `data.py`: Loads IMDB or custom text file data
 
-- model.py: Loads BERT model and performs prediction
+- `model.py`: Loads BERT model and performs prediction
 
-- db.py: SQLite database initialization and logging
+- `db.py`: SQLite database initialization and logging
 
-- requirements.txt: Python packages
+- `requirements.txt`: Python packages
 
-- README.md: This file
+- `README.md`: This file
 
 
 ### Output
