@@ -15,26 +15,26 @@ Predictions can be optionally logged into a local SQLite database (`predictions.
 1. Install dependencies (preferably in a virtual environment):
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt```
 
 
 2. Run with default IMDB test data:
 
 ```bash
-python main.py
+python main.py```
 
 3. Run with your own text file:
 ```bash
-python main.py --data_file your_text_file.txt
+python main.py --data_file your_text_file.txt```
 
 4. Log predictions to SQLite DB:
 ```bash
-python main.py --use_db
+python main.py --use_db```
 
 or with your own file:
 
 ```bash
-python main.py --data_file your_text_file.txt --use_db
+python main.py --data_file your_text_file.txt --use_db```
 
 
 ### Files
